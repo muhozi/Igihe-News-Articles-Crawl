@@ -1,0 +1,65 @@
+<!doctype html>
+<html ng-app>
+	<head>
+		<title>Nkuru - All your news in one place</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/styles.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header class="hero-spacer">
+				<h1>Good Morning RWANDA!</h1>
+			</header>
+			<br>
+			<div class="col-xs-12">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-sm-3"></div>
+							<div class="col-sm-6 ">
+								<div class="list-group-item set">
+									{% for info in articleInfo %}
+										<ul class="list-group">
+											{% set productCount = info.length %}
+											{% set productCountAsArray = Array(productCount) %}
+											{# This will run productCount times #}
+											{% for x, y in productCountAsArray %}
+												<a href="#">
+													<li class="list-group-item" id="list-headline" onmouseover="stext"   onmouseout="htext">
+														<div class="headline">
+															{{ info.articleName[x] }}
+														</div>
+														<div class="provider">
+															<span>{{ info.newsProvider }}</span>
+														</div>
+													</li>
+												</a>
+											{% endfor %}
+											
+											<!-- <li><strong>Location: </strong><em>{{ info.location }}</em></li>
+											<li><strong>Company Name: </strong><em>{{ infmo.companyNae }}</em></li>
+											<li><strong>Job Description: </strong><em>{{ info.summary }}</em></li> -->
+											<!-- <li><strong>Link</strong><a href="{{info.url}}"></a>View more</li> -->
+										</ul>
+									{% endfor %}
+								</div>
+								
+								
+								<div class="col-sm-3"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+		function stext() {
+		var x = document.getElementById("list-headline");
+		x.style.color = 'red';
+		}
+		</script>
+		<script src="public/js/jquery.min.js"></script>
+		<script src="public/js/bootstrap.min.js"></script>
+	</body>
+</html>
