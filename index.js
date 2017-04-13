@@ -5,7 +5,7 @@ var request = require('request');
 var cheerio = require('cheerio');
 var _= require('lodash');
 var bodyParser = require('body-parser');
-var port = 80;
+var port = process.env.PORT || 80;
 
 var app = express();
 
